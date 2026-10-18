@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University GPA Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>🎓 GPA Calculator</h2>
+        <p class="subtitle">Enter your course points (out of 4.0):</p>
+
+        <div class="course-row">
+            <input type="text" class="course-name" value="Course 1" readonly>
+            <input type="number" class="grade" placeholder="Points" step="0.1" max="4" min="0">
+        </div>
+        <div class="course-row">
+            <input type="text" class="course-name" value="Course 2" readonly>
+            <input type="number" class="grade" placeholder="Points" step="0.1" max="4" min="0">
+        </div>
+        <div class="course-row">
+            <input type="text" class="course-name" value="Course 3" readonly>
+            <input type="number" class="grade" placeholder="Points" step="0.1" max="4" min="0">
+        </div>
+        <div class="course-row">
+            <input type="text" class="course-name" value="Course 4" readonly>
+            <input type="number" class="grade" placeholder="Points" step="0.1" max="4" min="0">
+        </div>
+
+        <button onclick="calculateGPA()">Calculate GPA</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
