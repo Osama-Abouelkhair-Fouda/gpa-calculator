@@ -1,0 +1,29 @@
+services:
+  redis:
+    image: redis:7.2-alpine
+    container_name: gpa-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  app:
+    build: .
+    container_name: gpa-calculator-app
+    restart: always
+    ports:
+      - "${APP_PORT:-8080}:80"
+    environment:
+      - REDIS_HOST=redis
+    depends_on:
+      redis:
+        condition: service_healthy
+
+volumes:
+  redis_data:
